@@ -1,0 +1,387 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   CAPACITY LAB OS — GLOBAL DESIGN SYSTEM
+========================================================= */
+
+@layer base {
+  :root {
+    --background: 38 35% 97%;
+    --foreground: 28 20% 15%;
+
+    --card: 36 40% 98%;
+    --card-foreground: 28 20% 15%;
+
+    --popover: 36 40% 98%;
+    --popover-foreground: 28 20% 15%;
+
+    --primary: 28 28% 32%;
+    --primary-foreground: 38 35% 97%;
+
+    --secondary: 34 22% 92%;
+    --secondary-foreground: 28 20% 22%;
+
+    --muted: 34 18% 91%;
+    --muted-foreground: 28 10% 48%;
+
+    --accent: 14 35% 87%;
+    --accent-foreground: 28 20% 15%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 38 35% 97%;
+
+    --border: 34 18% 87%;
+    --input: 34 18% 87%;
+    --ring: 28 28% 52%;
+
+    --chart-1: 28 45% 62%;
+    --chart-2: 155 28% 48%;
+    --chart-3: 14 38% 68%;
+    --chart-4: 42 50% 65%;
+    --chart-5: 200 25% 55%;
+
+    --radius: 1rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+
+    font-family:
+      "DM Sans",
+      "Inter",
+      system-ui,
+      sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    overflow-x: hidden;
+
+    background:
+      radial-gradient(
+        circle at top left,
+        rgba(244, 233, 224, 0.55),
+        transparent 32%
+      ),
+      radial-gradient(
+        circle at bottom right,
+        rgba(233, 220, 209, 0.45),
+        transparent 30%
+      ),
+      #faf8f5;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family:
+      "Cormorant Garamond",
+      "Georgia",
+      serif;
+
+    letter-spacing: -0.02em;
+  }
+
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease,
+      color 0.25s ease,
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  img {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+}
+
+/* =========================================================
+   UTILITIES
+========================================================= */
+
+@layer utilities {
+  .font-serif {
+    font-family:
+      "Cormorant Garamond",
+      "Georgia",
+      serif;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* =========================
+     PREMIUM GLASS
+  ========================= */
+
+  .glass {
+    background: rgba(255, 255, 255, 0.68);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid
+      rgba(226, 214, 203, 0.55);
+
+    box-shadow:
+      0 8px 32px rgba(82, 52, 35, 0.05),
+      inset 0 1px 0
+        rgba(255, 255, 255, 0.55);
+  }
+
+  .glass-dark {
+    background: rgba(55, 37, 28, 0.72);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid
+      rgba(255, 255, 255, 0.08);
+  }
+
+  /* =========================
+     PREMIUM GRADIENTS
+  ========================= */
+
+  .gradient-hero {
+    background:
+      radial-gradient(
+        circle at top left,
+        rgba(255, 255, 255, 0.8),
+        transparent 25%
+      ),
+      linear-gradient(
+        160deg,
+        #faf8f5 0%,
+        #f5ede6 35%,
+        #f0e7df 70%,
+        #faf6f1 100%
+      );
+  }
+
+  .gradient-card {
+    background:
+      linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.92),
+        rgba(247, 240, 234, 0.94)
+      );
+  }
+
+  .gradient-dark {
+    background:
+      linear-gradient(
+        135deg,
+        #6f4e37 0%,
+        #5a3e2f 45%,
+        #39271e 100%
+      );
+  }
+
+  /* =========================
+     SHADOW SYSTEM
+  ========================= */
+
+  .shadow-soft {
+    box-shadow:
+      0 2px 12px
+        rgba(91, 63, 43, 0.05),
+      0 1px 3px
+        rgba(91, 63, 43, 0.04);
+  }
+
+  .shadow-card {
+    box-shadow:
+      0 10px 40px
+        rgba(91, 63, 43, 0.08),
+      0 2px 10px
+        rgba(91, 63, 43, 0.04);
+  }
+
+  .shadow-luxury {
+    box-shadow:
+      0 24px 80px
+        rgba(91, 63, 43, 0.14),
+      0 6px 20px
+        rgba(91, 63, 43, 0.06);
+  }
+
+  /* =========================
+     HOVER SYSTEM
+  ========================= */
+
+  .card-hover {
+    @apply transition-all duration-500;
+
+    will-change:
+      transform,
+      box-shadow;
+
+    transform: translateY(0);
+
+    &:hover {
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 18px 45px
+          rgba(91, 63, 43, 0.12),
+        0 4px 14px
+          rgba(91, 63, 43, 0.06);
+    }
+  }
+
+  .button-hover {
+    @apply transition-all duration-300;
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  /* =========================
+     PREMIUM BORDERS
+  ========================= */
+
+  .border-soft {
+    border: 1px solid
+      rgba(222, 209, 198, 0.55);
+  }
+
+  /* =========================
+     SHIMMER LOADING
+  ========================= */
+
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+    background: #ede4da;
+  }
+
+  .shimmer::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    transform: translateX(-100%);
+
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.5),
+        transparent
+      );
+
+    animation: shimmer 1.8s infinite;
+  }
+
+  /* =========================
+     PAGE FADE
+  ========================= */
+
+  .fade-in {
+    animation: fadeIn 0.5s ease;
+  }
+
+  .slide-up {
+    animation: slideUp 0.55s
+      cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background:
+    linear-gradient(
+      to bottom,
+      #d7c7ba,
+      #bca28e
+    );
+
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(
+      to bottom,
+      #c6b09f,
+      #9f7f68
+    );
+}
+
+/* =========================================================
+   TEXT SELECTION
+========================================================= */
+
+::selection {
+  background: #ead5cf;
+  color: #3f3025;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
