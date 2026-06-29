@@ -385,3 +385,125 @@
     transform: translateY(0);
   }
 }
+
+/* =========================================================
+   RESPONSIVE SAFETY LAYER
+   Keeps every route inside the viewport without page edits.
+========================================================= */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+input,
+textarea,
+select,
+button {
+  max-width: 100%;
+}
+
+.recharts-responsive-container,
+.recharts-wrapper,
+.recharts-surface {
+  max-width: 100% !important;
+}
+
+@media (max-width: 767px) {
+  main,
+  header,
+  footer,
+  nav,
+  section,
+  article,
+  aside,
+  form,
+  fieldset,
+  div {
+    min-width: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  a,
+  button,
+  label,
+  span {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  h1 {
+    font-size: clamp(2.45rem, 10.5vw, 3.15rem) !important;
+    line-height: 1.02 !important;
+  }
+
+  h2 {
+    font-size: clamp(2.2rem, 9.5vw, 2.9rem) !important;
+    line-height: 1.06 !important;
+  }
+
+  h3 {
+    font-size: clamp(1.65rem, 7vw, 2.2rem) !important;
+    line-height: 1.1 !important;
+  }
+
+  a,
+  button {
+    white-space: normal;
+  }
+
+  [role="dialog"],
+  [role="alertdialog"] {
+    width: calc(100vw - 2rem) !important;
+    max-width: calc(100vw - 2rem) !important;
+  }
+
+  nav[aria-label="Member navigation"] a {
+    min-width: 0 !important;
+    flex: 1 1 0%;
+  }
+
+  .recharts-responsive-container,
+  .recharts-wrapper {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 359px) {
+  h1 {
+    font-size: 2.25rem !important;
+  }
+
+  h2 {
+    font-size: 2rem !important;
+  }
+
+  h3 {
+    font-size: 1.55rem !important;
+  }
+
+  body {
+    font-size: 0.9375rem;
+  }
+}
